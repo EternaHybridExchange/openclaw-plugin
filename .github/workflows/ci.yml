@@ -1,0 +1,28 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate JSON files
+        run: |
+          node -e "JSON.parse(require('fs').readFileSync('package.json', 'utf8')); console.log('package.json OK')"
+          node -e "JSON.parse(require('fs').readFileSync('openclaw.plugin.json', 'utf8')); console.log('openclaw.plugin.json OK')"
+          node -e "JSON.parse(require('fs').readFileSync('packages/skill/package.json', 'utf8')); console.log('packages/skill/package.json OK')"
+      - name: Check SKILL.md files exist
+        run: |
+          test -f skills/trade/SKILL.md && echo "skills/trade/SKILL.md OK"
+          test -f skills/onboard/SKILL.md && echo "skills/onboard/SKILL.md OK"
+      - name: Check SKILL.md frontmatter
+        run: |
+          grep -q "^name:" skills/trade/SKILL.md && echo "trade frontmatter OK"
+          grep -q "^name:" skills/onboard/SKILL.md && echo "onboard frontmatter OK"
