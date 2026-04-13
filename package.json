@@ -1,0 +1,30 @@
+{
+  "name": "@eterna-hybrid-exchange/openclaw-plugin",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Openclaw plugin for trading on Eterna via the eterna CLI",
+  "files": [
+    "openclaw.plugin.json",
+    "skills"
+  ],
+  "keywords": [
+    "openclaw-plugin",
+    "eterna",
+    "trading",
+    "crypto",
+    "cli"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EternaHybridExchange/openclaw-plugin.git"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "openclaw": {
+    "compat": {
+      "pluginApi": ">=2026.3.24-beta.2"
+    }
+  }
+}
