@@ -1,0 +1,6 @@
+{
+  "name": "Eterna Trading",
+  "description": "Trade on Eterna from your openclaw agent using the eterna CLI",
+  "skills": ["skills/trade", "skills/onboard"],
+  "hooks": []
+}
