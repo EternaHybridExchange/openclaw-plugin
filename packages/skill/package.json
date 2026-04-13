@@ -1,0 +1,32 @@
+{
+  "name": "@eterna-hybrid-exchange/eterna-trading-skill",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Openclaw skill for trading on Eterna via the eterna CLI",
+  "files": [
+    "skills"
+  ],
+  "keywords": [
+    "openclaw-skill",
+    "eterna",
+    "trading",
+    "crypto",
+    "cli"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EternaHybridExchange/openclaw-plugin.git"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "prepublishOnly": "rm -rf ./skills && cp -r ../../skills ./skills"
+  },
+  "openclaw": {
+    "skills": [
+      "skills"
+    ]
+  }
+}
