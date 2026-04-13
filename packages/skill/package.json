@@ -1,10 +1,11 @@
 {
   "name": "@eterna-hybrid-exchange/eterna-trading-skill",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "Openclaw skill for trading on Eterna via the eterna CLI",
   "files": [
-    "skills"
+    "skills",
+    "README.md"
   ],
   "keywords": [
     "openclaw-skill",
@@ -22,7 +23,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "prepublishOnly": "test -d ../../skills && rm -rf ./skills && cp -r ../../skills ./skills"
+    "prepublishOnly": "test -d ../../skills && rm -rf ./skills && cp -r ../../skills ./skills && cp ../../README.md ./README.md"
   },
   "openclaw": {
     "skills": [
