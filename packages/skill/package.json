@@ -22,7 +22,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "prepublishOnly": "rm -rf ./skills && cp -r ../../skills ./skills"
+    "prepublishOnly": "test -d ../../skills && rm -rf ./skills && cp -r ../../skills ./skills"
   },
   "openclaw": {
     "skills": [

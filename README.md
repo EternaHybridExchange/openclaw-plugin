@@ -45,10 +45,12 @@ Not suitable for fully autonomous trading agents — it assumes a human user is 
 
 ## Releasing a new version
 
-1. Update `version` in `package.json`, `openclaw.plugin.json`, and `packages/skill/package.json` to the same value
+> **First release only:** npm OIDC trusted publishing must be configured before tagging. In the npm UI, go to each package's settings and enable "Granular access tokens" with the GitHub repo as the trusted publisher. If OIDC is not yet configured, add a `NODE_AUTH_TOKEN` secret to the GitHub repo instead and add `env: { NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }} }` to the publish steps in `.github/workflows/release.yml`.
+
+1. Update `version` in `package.json` and `packages/skill/package.json` to the same value
 2. Commit: `git commit -m "chore: bump version to X.Y.Z"`
 3. Tag and push: `git tag vX.Y.Z && git push origin vX.Y.Z`
-4. GitHub Actions publishes both packages automatically
+4. GitHub Actions verifies version consistency and publishes both packages automatically
 
 ## License
 
