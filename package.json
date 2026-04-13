@@ -1,6 +1,6 @@
 {
   "name": "@eterna-hybrid-exchange/openclaw-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Openclaw plugin for trading on Eterna via the eterna CLI",
   "files": [
