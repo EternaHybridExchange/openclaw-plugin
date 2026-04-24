@@ -18,8 +18,13 @@ jobs:
       - name: Check SKILL.md files exist
         run: |
           test -f skills/trade/SKILL.md
-          test -f skills/onboard/SKILL.md
+          test -f skills/deposit/SKILL.md
+          test -f skills/market-scan/SKILL.md
+          test -f skills/open-position/SKILL.md
+          test -f skills/close-position/SKILL.md
+          test -f skills/withdraw/SKILL.md
       - name: Check SKILL.md frontmatter
         run: |
-          grep -q "^name:" skills/trade/SKILL.md
-          grep -q "^name:" skills/onboard/SKILL.md
+          for skill in trade deposit market-scan open-position close-position withdraw; do
+            grep -q "^name:" "skills/$skill/SKILL.md"
+          done
