@@ -1,7 +1,10 @@
 ---
 name: eterna_trading
 description: Trade crypto on Eterna using the eterna CLI
-metadata.openclaw.requires.bins: [eterna]
+metadata.openclaw.requires.bins:
+  - name: eterna
+    install: npm install -g @eterna-hybrid-exchange/cli
+    postInstall: eterna login
 ---
 
 # Eterna Trading Skill

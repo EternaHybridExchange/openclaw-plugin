@@ -1,7 +1,10 @@
 ---
 name: onboarding
 description: Guided onboarding flow for new Eterna users — only activate when explicitly invoked
-metadata.openclaw.requires.bins: [eterna]
+metadata.openclaw.requires.bins:
+  - name: eterna
+    install: npm install -g @eterna-hybrid-exchange/cli
+    postInstall: eterna login
 ---
 
 # Eterna Trading Agent — Onboarding Skill
