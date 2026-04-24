@@ -2,7 +2,24 @@
   "id": "eterna-trading",
   "name": "Eterna Trading",
   "description": "Trade on Eterna from your openclaw agent using the eterna CLI",
-  "skills": ["./skills/trade", "./skills/onboard"],
+  "skills": [
+    "./skills/trade",
+    "./skills/market-scan",
+    "./skills/deposit",
+    "./skills/withdraw",
+    "./skills/open-position",
+    "./skills/close-position"
+  ],
+  "dependencies": {
+    "bins": {
+      "eterna": {
+        "package": "@eterna-hybrid-exchange/cli",
+        "install": "npm install -g @eterna-hybrid-exchange/cli",
+        "postInstall": "eterna login",
+        "docs": "https://github.com/EternaHybridExchange/eterna-cli"
+      }
+    }
+  },
   "configSchema": {
     "type": "object",
     "additionalProperties": false

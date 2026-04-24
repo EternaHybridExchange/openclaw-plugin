@@ -1,4 +1,4 @@
-# Eterna Trading — Openclaw Plugin & Skill
+# Eterna Trading — Openclaw Plugin
 
 Let your openclaw AI agent trade on [Eterna](https://eterna.exchange) using the `eterna` CLI.
 
@@ -13,7 +13,7 @@ eterna login
 
 ## Installation
 
-**As a plugin** (recommended — more versatile):
+**As a plugin** (recommended):
 
 ```shell
 openclaw plugins install @eterna-hybrid-exchange/openclaw-plugin
@@ -27,21 +27,29 @@ openclaw skills install @eterna-hybrid-exchange/eterna-trading-skill
 
 ## Skills included
 
-### `eterna_trading` — always active
+### `eterna_trading` — always active (router)
 
-Teaches the agent to use the `eterna` CLI for trading operations:
+Detects user state on first message and routes to the right skill. New users get an automatic market scan and guided onboarding flow. Returning traders see their positions.
 
-- `eterna balance` — check account balance
-- `eterna positions` — view open positions
-- `eterna orders` — view active orders
-- `eterna execute <file>` — execute TypeScript trading code
-- `eterna sdk --search <query>` — browse SDK method docs
+### `market_scan` — market analysis and trade ideas
 
-### `onboarding` — explicit invocation only
+Live market briefings, TA scanning, deep-dives on specific symbols, and trade idea generation with entry/stop/target levels.
 
-A guided 5-phase onboarding flow for new end users (Discovery → Trust Building → First Deposit → First Trade → Preferences). Activate with `/eterna-trading:onboarding` or by asking the agent to onboard you.
+### `deposit` — deposit and fund trading account
 
-Not suitable for fully autonomous trading agents — it assumes a human user is present.
+Guides through deposit address, chain selection, deposit monitoring via `getDepositRecords()`, transfer from Funding to Trading wallet, and balance confirmation.
+
+### `withdraw` — withdraw funds
+
+Check withdrawable balance, submit withdrawal, and track status.
+
+### `open_position` — place trades
+
+Pre-trade checks (balance, existing positions, instrument specs), trade proposals with clear margin/notional breakdown, and execution with proper TP/SL.
+
+### `close_position` — close positions and manage orders
+
+Close positions, cancel orders, and modify TP/SL on existing positions.
 
 ## Releasing a new version
 
