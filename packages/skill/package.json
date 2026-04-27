@@ -1,6 +1,6 @@
 {
   "name": "@eterna-hybrid-exchange/eterna-trading-skill",
-  "version": "0.1.3",
+  "version": "0.3.0",
   "type": "module",
   "description": "Openclaw skill for trading on Eterna via the eterna CLI",
   "files": [
