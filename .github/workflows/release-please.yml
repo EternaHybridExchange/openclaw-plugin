@@ -10,7 +10,30 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
       - uses: googleapis/release-please-action@v4
+        id: release
         with:
           release-type: node
+
+  publish:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.release_created }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - name: Publish plugin
+        run: npm publish --provenance --access public
+      - name: Publish skill package
+        working-directory: packages/skill
+        run: npm publish --provenance --access public
