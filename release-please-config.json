@@ -1,0 +1,20 @@
+{
+  "release-type": "node",
+  "separate-pull-requests": false,
+  "group-pull-request-title-pattern": "chore: release ${branch}",
+  "plugins": [
+    {
+      "type": "linked-versions",
+      "groupName": "eterna packages",
+      "components": ["openclaw-plugin", "eterna-trading-skill"]
+    }
+  ],
+  "packages": {
+    ".": {
+      "component": "openclaw-plugin"
+    },
+    "packages/skill": {
+      "component": "eterna-trading-skill"
+    }
+  }
+}
